@@ -87,9 +87,9 @@ MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
 plugins=(
     git
     autojump
+    fzf-tab
     zsh-autosuggestions
     fzf
-    fzf-tab
     #vi-mode
     zsh-vim-mode
     # MUST BE LAST

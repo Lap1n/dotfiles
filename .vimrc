@@ -3,6 +3,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+""" Plug[vim-polyglot]
+" Setting config before loading it
+" Disable syntax highlight for python since I use semshi instead
+let g:polyglot_disabled = ['python']
+
+
+""" Plug[vimspector]
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -22,8 +32,6 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 " Vim-Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Semantic Highlighting for Python in Neovim
-Plug 'numirias/semshi'
 " Plugin for comments
 Plug 'preservim/nerdcommenter'
 " Plugin for jsonc comments
@@ -44,6 +52,15 @@ Plug 'thaerkh/vim-workspace'
 Plug 'mhinz/vim-startify'
 " File history view
 Plug 'simnalamburt/vim-mundo'
+" Multi-langugae syntax highlighting
+Plug 'sheerun/vim-polyglot'
+" Semantic Highlighting for Python in Neovim
+Plug 'numirias/semshi'
+" Omnisharp support for vim
+"Plug 'OmniSharp/omnisharp-vim'
+" Debugger plugin
+Plug 'puremourning/vimspector'
+" Omnisharp support for vim
 " Initialize plugin system
 call plug#end()
 filetype plugin on
@@ -133,10 +150,6 @@ vmap <C-_> <leader>c<Space>
 
 
 """ Plug[coc.nvim] : set tab to trigger autocomplete
-" use <c-space>for trigger completion (we need to use @ instead of space due to
-" neovim
-" Use <c-space> to trigger completion.
-" inoremap <silent><expr> <C-space> coc#refresh()
 " TextEdit might fail if hidden is not set.
 set hidden
 " Show line numbers
@@ -181,8 +194,10 @@ endfunction
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
+  nnoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
+  nnoremap <silent><expr> <c-@> coc#refresh()
 endif
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
@@ -296,6 +311,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 
+" Show doc on cursor hover
+
 
 """ Plug[fzf] mappings
 " Map ctrl p to open the fuzzy file searcher while ignoring .gitignore files
@@ -352,8 +369,8 @@ nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 
 """ Plug[vim-workspace] settings
 " Enable workspace autosave
-let g:workspace_autosave_always = 1
-let g:workspace_persist_undo_history = 0
+"let g:workspace_autosave_always = 1
+"let g:workspace_persist_undo_history = 0
 
 """ Set undo dir path in tmp folder so it gets deleted after reboot
 " Let's save" Put plugins and dictionaries in this dir (also on Windows)
@@ -371,5 +388,7 @@ if has('persistent_undo')
 endif
 
 """ Plug[mundo] config
+" Toggle file history view
 nnoremap <F4> :MundoToggle<CR>
+
 
