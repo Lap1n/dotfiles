@@ -1,0 +1,129 @@
+{
+  // suggestions
+  // "suggest.echodocSupport": true,
+  // TODO add more labels and give them cool glyphs
+  //"suggest.completionItemKindLabels": {
+  //  "text": "t",
+  //  "method": "m",
+  //  "function": ""
+  //},
+
+  // diagnostics
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": " ",
+  // "diagnostic.displayByAle": true,
+  // "diagnostic.virtualText": true, // this won't work with codelens when error on same line
+
+  // codelens TODO what does this get me?
+  // "codeLens.enable": true,
+
+  // list
+  "list.indicator": ">",
+  "list.selectedSignText": " ",
+
+  // autoformat
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "graphql",
+    "html",
+    "yaml",
+    "json",
+    "python",
+    "typescript",
+    "java"
+  ],
+  "coc.preferences.hoverTarget": "float",
+
+  // python config
+  "python.linting.enabled": false,
+  "python.linting.pylintEnabled": false,
+  "python.formatting.provider": "black",
+  // "python.formatting.blackPath": "~/.local/bin/black",
+  // "python.linting.pylintPath": "~/.miniconda/envs/neovim/bin/pylint",
+  // "python.condaPath": "~/.miniconda/bin/conda",
+  // "python.sortImports.path": "~/.miniconda/envs/neovim/bin/isort",
+  // "python.jediPath": "~/.miniconda/envs/neovim/lib/python3.8/site-packages",
+  "python.jediEnabled": false,
+  "python.pythonPath": "python",
+
+  // snippets
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
+  //"snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+
+  // emmet
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+
+  // explorer
+  "explorer.width": 30,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.file.hiddenRules": {
+    "extensions": ["o", "a", "obj", "pyc"],
+    "filenames": [".git"],
+    "patternMatches": ["^\\."]
+  },
+  "explorer.icon.enableVimDevicons": false,
+  "explorer.keyMappings": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+  //coc-emoji
+  "coc.source.emoji.filetypes": ["markdown"],
+
+  // TODO b:coc_suggest_disable=1 GOYO
+  // TODO add to paths.vim g:coc_node_path
+
+  // Enable preselect mode
+  "suggest.enablePreselect": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.virtualTextPrefix": "! ",
+  "Lua.diagnostics.globals": ["vim"],
+
+  //projector config
+  "projector.enabled": true,
+
+  //coc-git config
+  "git.addGBlameToVirtualText": false,
+  "clangd.path": "/home/lapin/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
+  //coc-omnisharp
+  // "coc.source.OmniSharp.enable": true,
+  //"coc.source.OmniSharp.triggerCharacters": "."
+  //Completion icons
+  "suggest.completionItemKindLabels": {
+    "keyword": "\uf1de",
+    "variable": "\ue79b",
+    "value": "\uf89f",
+    "operator": "\u03a8",
+    "constructor": "\uf0ad",
+    "function": "\u0192",
+    "reference": "\ufa46",
+    "constant": "\uf8fe",
+    "method": "\uf09a",
+    "struct": "\ufb44",
+    "class": "\uf0e8",
+    "interface": "\uf417",
+    "text": "\ue612",
+    "enum": "\uf435",
+    "enumMember": "\uf02b",
+    "module": "\uf40d",
+    "color": "\ue22b",
+    "property": "\ue624",
+    "field": "\uf9be",
+    "unit": "\uf475",
+    "event": "\ufacd",
+    "file": "\uf723",
+    "folder": "\uf114",
+    "snippet": "\ue60b",
+    "typeParameter": "\uf728",
+    "default": "\uf29c"
+  }
+}

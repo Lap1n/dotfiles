@@ -1,3 +1,9 @@
+export VISUAL=nvim;
+export EDITOR=nvim;
+
+emulate sh
+. ~/.profile
+emulate zsh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -90,7 +96,6 @@ plugins=(
     fzf-tab
     zsh-autosuggestions
     fzf
-    #vi-mode
     zsh-vim-mode
     # MUST BE LAST
     zsh-syntax-highlighting 
@@ -123,21 +128,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # Add alias to nvim with vim, we can still use vim with /vim command
-#
-# >>> conda initialize >>> 
-# !! Contents within this block are managed by 'conda init' !! 
-__conda_setup="$('/home/lapin/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)" 
-if [ $? -eq 0 ]; then 
-    eval "$__conda_setup" 
-else 
-    if [ -f "/home/lapin/anaconda3/etc/profile.d/conda.sh" ]; then 
-        . "/home/lapin/anaconda3/etc/profile.d/conda.sh" 
-    else 
-        export PATH="/home/lapin/anaconda3/bin:$PATH" 
-    fi 
-fi 
-unset __conda_setup 
-# <<< conda initialize <<< 
 
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
@@ -180,3 +170,48 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 eval "$(pmy init)"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/lapin/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/lapin/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/lapin/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/lapin/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Codi
+# Usage: codi [filetype] [filename]
+codi() {
+  local syntax="${1:-python}"
+  shift
+  nvim -c \
+    "let g:startify_disable_at_vimenter = 1 |\
+    set bt=nofile ls=0 noru nonu nornu |\
+    hi ColorColumn ctermbg=NONE |\
+    hi VertSplit ctermbg=NONE |\
+    hi NonText ctermfg=0 |\
+    Codi $syntax" "$@"
+}
+
+
+export PYTHONPATH="/home/lapin/Documents/GitHub/robotic/vision/src:/home/lapin/Documents/GitHub/robotic/models:/home/lapin/Documents/GitHub/robotic/models/research"
+
+export PYTHONPATH="${PYTHONPATH}:/home/lapin/Projects/ai/pixai/src"
+# export PYTHONPATH="/home/lapin/Documents/GitHub/robotic/vision/src"
+export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+wacId=$(xsetwacom list devices | grep STYLUS | tr " \t" ":" | tr -s ":" | cut -d ":" -f 6)
+alias wacDVI="xsetwacom set $wacId MapToOutput HEAD-1"
+alias wacHDMI="xsetwacom set $wacId MapToOutput HEAD-0"
+wacHDMI
+
+# conda activate python36
+
+
