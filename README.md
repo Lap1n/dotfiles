@@ -1,1 +1,1 @@
-# vcs-configs
+# dotfiles
