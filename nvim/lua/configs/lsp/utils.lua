@@ -1,5 +1,10 @@
 local M = {}
 
+local lspconfig = require "lspconfig"
+local callbacks = require "lsp_ext/callbacks"
+local util = require "lsp_ext/util"
+local putil = require "lsp_ext/private/util"
+
 M.on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -17,7 +22,8 @@ M.on_attach = function(client, bufnr)
     -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
     buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    -- buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    buf_set_keymap("n", "<C-k>", "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
     -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -54,4 +60,53 @@ M.on_attach = function(client, bufnr)
     end
 end
 
+function M.set_signature_help_autocmd(wait)
+    wait = wait or 100
+    vim.lsp.callbacks["textDocument/signatureHelp"] = callbacks.signature_help
+    vim.api.nvim_command("augroup nvim_lsp_signature_help")
+    vim.api.nvim_command("autocmd!")
+    vim.api.nvim_command(
+        string.format(
+            "autocmd CursorMoved,CursorMovedI,VimResized,BufHidden,BufLeave * lua require'configs.lsp.utils'._on_cursor_moved_for_signature_help(%s)",
+            wait
+        )
+    )
+    vim.api.nvim_command("augroup END")
+end
+function M._on_cursor_moved_for_signature_help(wait)
+    vim.validate {wait = {wait, "n"}}
+
+    local function should_call_signature_help()
+        local chars =
+            vim.tbl_flatten(
+            vim.tbl_map(
+                function(cap)
+                    return cap.resolved_capabilities.signature_help_trigger_characters
+                end,
+                util.buf_resolved_capabilities()
+            )
+        )
+        if vim.tbl_contains(chars, putil.get_before_char_skip_white()) then
+            return true
+        end
+        return false
+    end
+
+    if not should_call_signature_help() then
+        return
+    end
+
+    if M.signature_help_debounce_timer ~= nil then
+        if vim.loop.is_active(M.signature_help_debounce_timer) then
+            putil.clear_timeout(M.signature_help_debounce_timer)
+        end
+        M.signature_help_debounce_timer = nil
+    end
+    M.signature_help_debounce_timer =
+        putil.set_timeout(wait, vim.schedule_wrap(require("lspsaga.signaturehelp").signature_help))
+end
+
+M.set_signature_help_autocmd(100)
+
+lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {on_attach = M.on_attach})
 return M

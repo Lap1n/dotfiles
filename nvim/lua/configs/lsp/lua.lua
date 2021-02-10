@@ -1,5 +1,4 @@
 local nvim_lsp = require "lspconfig"
-local lsp_utils = require("configs.lsp.utils")
 
 -- lua config
 local system_name
@@ -17,7 +16,6 @@ local sumneko_root_path = os.getenv("HOME") .. "/.local/share/nvim/lspinstall/lu
 local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server"
 
 nvim_lsp.sumneko_lua.setup {
-    on_attach = lsp_utils.on_attach,
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     settings = {
         Lua = {

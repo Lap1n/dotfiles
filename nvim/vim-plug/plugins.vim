@@ -68,6 +68,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'ojroques/nvim-lspfuzzy'
     Plug 'kosayoda/nvim-lightbulb'
     Plug 'anott03/nvim-lspinstall'
+    Plug 'h-michael/lsp-ext.nvim'
 
     "Formatting
     Plug 'sbdchd/neoformat'

@@ -1,7 +1,5 @@
 local nvim_lsp = require "lspconfig"
-local lsp_utils = require("configs.lsp.utils")
 
-require "lspconfig".clangd.setup {
-    on_attach = lsp_utils.on_attach,
+nvim_lsp.clangd.setup {
     cmd = {"clangd-9", "--background-index"}
 }

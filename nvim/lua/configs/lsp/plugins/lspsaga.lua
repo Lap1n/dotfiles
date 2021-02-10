@@ -14,8 +14,8 @@ saga.init_lsp_saga {
 vim.api.nvim_exec(
     [[
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>
-nnoremap <silent><leader>la <cmd>lua require('lspsaga.codeaction').code_action()<CR>
-vnoremap <silent><leader>la <cmd>'<,'>lua require('lspsaga.codeaction').range_code_action()<CR>
+nnoremap <silent><leader>lq <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+vnoremap <silent><leader>lq <cmd>'<,'>lua require('lspsaga.codeaction').range_code_action()<CR>
 
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 
