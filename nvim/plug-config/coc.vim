@@ -1,9 +1,6 @@
   let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-actions',
-    \ 'coc-sh',
-    \ 'coc-java-debug',
-    \ 'coc-java',
     \ 'coc-lists',
     \ 'coc-emmet',
     \ 'coc-tasks',
@@ -15,8 +12,6 @@
     \ 'coc-emoji',
     \ 'coc-cssmodules',
     \ 'coc-yaml',
-    \ 'coc-pyright',
-    \ 'coc-explorer',
     \ 'coc-svg',
     \ 'coc-prettier',
     \ 'coc-vimlsp',
@@ -192,3 +187,4 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+

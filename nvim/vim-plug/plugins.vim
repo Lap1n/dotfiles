@@ -33,12 +33,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'justinmk/vim-sneak'
     Plug 'easymotion/vim-easymotion'
 
+
     " Surround
     Plug 'tpope/vim-surround'
     " Files
     Plug 'tpope/vim-eunuch'
     " Have the file system follow you around
-    Plug 'airblade/vim-rooter'
+    " Plug 'airblade/vim-rooter'
     " auto set indent settings
     Plug 'tpope/vim-sleuth'
     " Better Syntax Support
@@ -51,10 +52,27 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'alvan/vim-closetag'
     " Themes
     Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+    Plug 'glepnir/zephyr-nvim'
 
 
-    " Intellisense
+    " FZF
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+
+    " LSP
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'onsails/lspkind-nvim'
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'ojroques/nvim-lspfuzzy'
+    Plug 'kosayoda/nvim-lightbulb'
+    Plug 'anott03/nvim-lspinstall'
+
+    "Formatting
+    Plug 'sbdchd/neoformat'
+
+
 
     " c++ syntax highlighting
     Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -63,9 +81,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'glepnir/galaxyline.nvim'
 
     Plug 'kevinhwang91/rnvimr'
-    " FZF
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
@@ -95,6 +110,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'dsych/vimspector', {'branch': 'nvim-float-window'}
     " Better tabline
     Plug 'kyazdani42/nvim-web-devicons'
+
+    " File explorer 
+    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+
+    " Buffer bar
     Plug 'romgrk/barbar.nvim'
     " Plug 'mg979/vim-xtabline'
     " undo time travel
@@ -165,10 +186,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'brooth/far.vim'
     " Plug 'atishay/far.vim'
     " Semantic Highlighting for Python in Neovim
-    Plug 'numirias/semshi'
+    " Plug 'numirias/semshi'
     " Debugger plugin
     " Use fzf as a search engine instead of coc builtin commands
-    Plug 'antoinemadec/coc-fzf' 
+    " Plug 'antoinemadec/coc-fzf' 
     " Telescope 
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'

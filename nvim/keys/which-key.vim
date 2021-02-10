@@ -31,6 +31,7 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 function! OpenExplorer()
   :execute "CocCommand explorer " . getcwd()
 endfunction
+" nnoremap <silent> <leader>e :call OpenExplorer()
 
 " Single mappings
 let g:which_key_map['/'] = [ ':call Comment()'                    , 'comment' ]
@@ -38,8 +39,9 @@ let g:which_key_map['.'] = [ ':e $MYVIMRC'                        , 'open init' 
 let g:which_key_map[';'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 " let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
+" let g:which_key_map['e'] = [ ':NvimTreeToggle'               , 'explorer2' ]
+let g:which_key_map['e'] = [ ':call OpenExplorer()'               , 'explorer' ]
 " let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
-let g:which_key_map['e'] = [ ':call OpenExplorer()'               , 'explorer' ] 
 
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
@@ -233,42 +235,43 @@ let g:which_key_map.G = {
       \ }
 
 " l is for language server protocol
-let g:which_key_map.l = {
-      \ 'name' : '+lsp' ,
-      \ '.' : [':CocConfig'                          , 'config'],
-      \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
-      \ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
-      \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
-      \ 'b' : [':CocNext'                            , 'next action'],
-      \ 'B' : [':CocPrev'                            , 'prev action'],
-      \ 'c' : [':CocList commands'                   , 'commands'],
-      \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
-      \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
-      \ 'e' : [':CocList extensions'                 , 'extensions'],
-      \ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
-      \ 'F' : ['<Plug>(coc-format)'                  , 'format'],
-      \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
-      \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
-      \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
-      \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
-      \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
-      \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
-      \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
-      \ 'o' : [':Vista!!'                            , 'outline'],
-      \ 'O' : [':CocList outline'                    , 'outline'],
-      \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
-      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
-      \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
-      \ 'r' : ['<Plug>(coc-references)'              , 'references'],
-      \ 'R' : ['<Plug>(coc-rename)'                  , 'rename'],
-      \ 's' : [':CocList -I symbols'                 , 'references'],
-      \ 'S' : [':CocList snippets'                   , 'snippets'],
-      \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
-      \ 'u' : [':CocListResume'                      , 'resume list'],
-      \ 'U' : [':CocUpdate'                          , 'update CoC'],
-      \ 'z' : [':CocDisable'                         , 'disable CoC'],
-      \ 'Z' : [':CocEnable'                          , 'enable CoC'],
-      \ }
+" for coc
+" let g:which_key_map.l = {
+      " \ 'name' : '+lsp' ,
+      " \ '.' : [':CocConfig'                          , 'config'],
+      " \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
+      " \ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
+      " \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
+      " \ 'b' : [':CocNext'                            , 'next action'],
+      " \ 'B' : [':CocPrev'                            , 'prev action'],
+      " \ 'c' : [':CocList commands'                   , 'commands'],
+      " \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
+      " \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
+      " \ 'e' : [':CocList extensions'                 , 'extensions'],
+      " \ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
+      " \ 'F' : ['<Plug>(coc-format)'                  , 'format'],
+      " \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
+      " \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
+      " \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
+      " \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
+      " \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
+      " \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
+      " \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
+      " \ 'o' : [':Vista!!'                            , 'outline'],
+      " \ 'O' : [':CocList outline'                    , 'outline'],
+      " \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
+      " \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
+      " \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
+      " \ 'r' : ['<Plug>(coc-references)'              , 'references'],
+      " \ 'R' : ['<Plug>(coc-rename)'                  , 'rename'],
+      " \ 's' : [':CocList -I symbols'                 , 'references'],
+      " \ 'S' : [':CocList snippets'                   , 'snippets'],
+      " \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
+      " \ 'u' : [':CocListResume'                      , 'resume list'],
+      " \ 'U' : [':CocUpdate'                          , 'update CoC'],
+      " \ 'z' : [':CocDisable'                         , 'disable CoC'],
+      " \ 'Z' : [':CocEnable'                          , 'enable CoC'],
+      " \ }
       " \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
 
 " t is for terminal
