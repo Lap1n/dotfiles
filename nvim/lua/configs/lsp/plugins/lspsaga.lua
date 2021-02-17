@@ -10,7 +10,6 @@ saga.init_lsp_saga {
         scroll_up = "<C-b>"
     }
 }
-
 vim.api.nvim_exec(
     [[
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>

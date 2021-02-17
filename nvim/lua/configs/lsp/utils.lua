@@ -108,5 +108,12 @@ end
 
 M.set_signature_help_autocmd(100)
 
-lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {on_attach = M.on_attach})
+lspconfig.util.default_config =
+    vim.tbl_extend(
+    "force",
+    lspconfig.util.default_config,
+    {
+        on_attach = M.on_attach
+    }
+)
 return M

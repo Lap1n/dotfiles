@@ -44,6 +44,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-sleuth'
     " Better Syntax Support
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+    Plug 'nvim-treesitter/playground'
     " Cool Icons
     Plug 'ryanoasis/vim-devicons'
     " Auto pairs for '(' '[' '{'
@@ -111,10 +112,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'dsych/vimspector', {'branch': 'nvim-float-window'}
     " Better tabline
     Plug 'kyazdani42/nvim-web-devicons'
-
-    " File explorer 
-    Plug 'kyazdani42/nvim-tree.lua'
-    Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
     " Buffer bar
     Plug 'romgrk/barbar.nvim'

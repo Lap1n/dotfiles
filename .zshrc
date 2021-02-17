@@ -214,4 +214,10 @@ wacHDMI
 
 # conda activate python36
 
+source ~/Projects/Unity-Robotics-Hub/tutorials/pick_and_place/ROS/devel/setup.zsh
+source /opt/ros/noetic/setup.zsh
+source ~/catkin_ws/devel_isolated/setup.zsh
+source ~/catkin_ws/devel/setup.zsh
 
+#vcs completion
+source /usr/share/vcstool-completion/vcs.zsh
