@@ -1,0 +1,107 @@
+let mapleader=" "
+set clipboard+=unnamed
+set showmode
+set sneak
+set easymotion
+nmap <leader>w <Plug>(easymotion-bd-w)
+set ideajoin
+
+"set which-key
+"set notimeout " disable the timeout option
+"set timeoutlen = 5000 " increase the timeoutlen (default: 1000)
+
+set NERDTree
+let g:NERDTreeMapQuit="<leader>e"
+let g:NERDTreeMapActivateNode="l"
+let g:NERDTreeMapCloseDir="h"
+let g:NERDTreeMapMenu="<tab>"
+nmap <leader>e :NERDTreeToggle<CR>
+
+set commentary
+set surround
+set highlightedyank
+let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+let g:highlightedyank_highlight_duration = "500"
+
+" clear search highlighting
+nnoremap <leader>/ :nohls<return><esc>
+" don't lose selection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
+
+" now it is possible to paste many times over selected text
+vnoremap <expr> p 'pgv"'.v:register.'y`>'
+vnoremap <expr> P 'Pgv"'.v:register.'y`>'
+
+" See lookupkeys at https://github.com/JetBrains/ideavim/wiki/%22set%22-commands if problems in the futures regarding completion navigation with <c-j> 
+imap <c-j> <c-n> 
+imap <c-k> <c-p> 
+
+
+nmap <tab> gt
+nmap <s-tab> gT
+
+nmap gr <Action>(ShowUsages)
+nmap gs <Action>(SwitchHeaderSource)
+nmap gi <Action>(GotoImplementation)
+nmap gI <Action>(GotoSuperMethod)
+nmap gf <Action>(GotoFile)
+
+vmap <leader>/ <Action>(CommentByBlockComment)
+nmap <leader>/ <Action>(CommentByLineComment)
+nmap <leader>bd :quit<CR>
+nmap <leader>ba <Action>(CloseAllEditors)
+nmap <leader>bc <Action>(CloseAllEditorsButActive)
+
+nmap <leader>d <Action>(Debug)
+
+nmap <leader>th <Action>(HideActiveWindow)
+nmap <leader>tt <Action>(ActivateTerminalToolWindow)
+
+nmap <leader>rb <Action>(BuildCurrentProject)
+nmap <leader>rp <Action>(RiderLink.StartUnreal)
+nmap <leader>rs <Action>(RiderLink.StopUnreal)
+
+nmap <leader>pp <Action>(GotoFile) 
+nmap <leader>pa <Action>(AddAction)
+nmap <leader>pf <Action>(ManageRecentProjects)
+
+nmap <leader>lo <Action>(FileStructurePopup)
+nmap <leader>la <Action>(QuickActions)
+nmap <leader>lq <Action>(ShowIntentionActions)
+vmap <leader>lq <Action>(ShowIntentionActions)
+nmap <leader>lr <Action>(RenameElement)
+nmap <leader>lf <Action>(ReformatCode)
+nmap <leader><cr> <Action>(ShowIntentionActions)
+
+nmap <leader>sh <Action>(RecentFiles)
+nmap <leader>sp <Action>(GotoFile)
+nmap <leader>sc <Action>(GotoClass)
+nmap <leader><leader> <Action>(SearchEverywhere)
+
+nnoremap <c-l> <c-w>l
+"nnoremap <c-k> <c-w>k
+"nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+
+"Font size"
+"change font size
+nmap <c-=> :action EditorIncreaseFontSize<CR>
+nmap <c--> :action EditorDecreaseFontSize<CR>
+nmap <leader>= :action EditorResetFontSize<CR>
+
+"Refactoring"
+"nmap <leader>ri :action Inline<CR>
+"nmap <leader>rr :action RenameElement<CR>
+"nmap <leader>rev :action IntroduceVariable<CR>
+"vmap <leader>rev :action IntroduceVariable<CR>
+"nmap <leader>rem :action ExtractMethod<CR>
+"vmap <leader>rem :action ExtractMethod<CR>
+"nmap <leader>rm :action Move<CR>
+"nmap <leader>ro :action OptimizeImports<CR>
+"nmap <leader>rg :action Generate<CR>
+nmap <leader>lm :action RefactoringMenu<CR>
+
+command! Reload source C:/Users/phili/.ideavimrc
+
