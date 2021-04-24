@@ -6,9 +6,9 @@ set easymotion
 nmap <leader>w <Plug>(easymotion-bd-w)
 set ideajoin
 
-"set which-key
-"set notimeout " disable the timeout option
-"set timeoutlen = 5000 " increase the timeoutlen (default: 1000)
+set which-key
+set notimeout " disable the timeout option
+set tim outlen = 5000 " increase the timeoutlen (default: 1000)
 
 set NERDTree
 let g:NERDTreeMapQuit="<leader>e"
@@ -103,5 +103,5 @@ nmap <leader>= :action EditorResetFontSize<CR>
 "nmap <leader>rg :action Generate<CR>
 nmap <leader>lm :action RefactoringMenu<CR>
 
-command! Reload source C:/Users/phili/.ideavimrc
+command! Reload source ~/.ideavimrc
 

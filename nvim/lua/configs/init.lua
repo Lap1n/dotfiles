@@ -7,6 +7,7 @@ require("configs.lsp.lua")
 require("configs.lsp.omnisharp")
 
 -- Language server plugins
+--Completion plugin
 require("configs.lsp.plugins.compe")
 require("configs.lsp.plugins.lightbulb")
 require("configs.lsp.plugins.lspfuzzy")

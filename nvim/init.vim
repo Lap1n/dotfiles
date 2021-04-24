@@ -63,7 +63,7 @@ else
   source $HOME/.config/nvim/plug-config/asynctask.vim
   source $HOME/.config/nvim/plug-config/omnipytent.vim
   source $HOME/.config/nvim/plug-config/window-swap.vim
-  source $HOME/.config/nvim/plug-config/markdown-preview.vim
+  " source $HOME/.config/nvim/plug-config/markdown-preview.vim
   luafile $HOME/.config/nvim/lua/plug-colorizer.lua
   luafile $HOME/.config/nvim/plug-config/telescope.lua
   luafile $HOME/.config/nvim/plug-config/tree-sitter.lua
@@ -71,51 +71,57 @@ else
   source $HOME/.config/nvim/plug-config/sessions.vim " Uncomment if you want to use Vimspector
   source $HOME/.config/nvim/plug-config/jupyter.vim 
   source $HOME/.config/nvim/plug-config/nvim-tree.vim
-endif
+  source $HOME/.config/nvim/plug-config/vsnip.vim
+  " source $HOME/.config/nvim/plug-config/completion.vim
 
-" Add paths to node and python here
-if !empty(glob("~/.config/nvim/paths.vim"))
-  source $HOME/.config/nvim/paths.vim
-endif
-
-" Better nav for omnicomplete TODO figure out why this is being overridden
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
-
-" Fix the parenthese cursor on parenthesis
-hi MatchParen cterm=bold ctermfg=220 gui=bold guifg=#ffcc00 guibg=#263238
-if (has('termguicolors'))
-" Enable true color
-  set termguicolors " enable true colors support
-endif     
-
-" Plug[Vimspector] config
-let g:vimspector_enable_mappings = 'HUMAN'
-
-" Reloads vimrc after saving but keep cursor position
-if !exists('*ReloadVimrc')
-   fun! ReloadVimrc()
-       let save_cursor = getcurpos()
-       source $MYVIMRC
-       call setpos('.', save_cursor)
-   endfun
-endif
-autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
-
-function! GoToColumnInFile (fileInfoString)
-  let fileInfo = split(a:fileInfoString, ":")
-  let column = 0
-  normal! gF
-  if len(fileInfo) > 2
-    let column = fileInfo[2]
-    execute 'normal! ' . column . '|'
+  " Add paths to node and python here
+  if !empty(glob("~/.config/nvim/paths.vim"))
+    source $HOME/.config/nvim/paths.vim
   endif
-endfunction
-nmap gf <c-w>gF
 
-let g:OmniSharp_highlighting = 0
+  " Better nav for omnicomplete TODO figure out why this is being overridden
+  inoremap <expr> <c-j> ("\<C-n>")
+  inoremap <expr> <c-k> ("\<C-p>")
 
-augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
-augroup END
+  " Fix the parenthese cursor on parenthesis
+  hi MatchParen cterm=bold ctermfg=220 gui=bold guifg=#ffcc00 guibg=#263238
+  if (has('termguicolors'))
+  " Enable true color
+    set termguicolors " enable true colors support
+  endif     
+
+  " Plug[Vimspector] config
+  let g:vimspector_enable_mappings = 'HUMAN'
+
+  " Reloads vimrc after saving but keep cursor position
+  if !exists('*ReloadVimrc')
+     fun! ReloadVimrc()
+         let save_cursor = getcurpos()
+         source $MYVIMRC
+         call setpos('.', save_cursor)
+     endfun
+  endif
+  autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
+
+  function! GoToColumnInFile (fileInfoString)
+    let fileInfo = split(a:fileInfoString, ":")
+    let column = 0
+    normal! gF
+    if len(fileInfo) > 2
+      let column = fileInfo[2]
+      execute 'normal! ' . column . '|'
+    endif
+  endfunction
+  nmap gf <c-w>gF
+
+  let g:OmniSharp_highlighting = 0
+
+  augroup highlight_yank
+      autocmd!
+      au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+  augroup END
+endif
+
+
+
+

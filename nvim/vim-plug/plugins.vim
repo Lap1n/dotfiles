@@ -64,6 +64,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
+    " Snippets
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip-integ'
+    Plug 'kleber-swf/vscode-unity-code-snippets'
+    Plug 'kitagry/vs-snippets'
+    Plug 'YclepticStudios/vscode-unity-snippets'
+    Plug 'J0rgeSerran0/vscode-csharp-snippets'
+
+
+
+    " Plug 'nvim-lua/completion-nvim'
     Plug 'onsails/lspkind-nvim'
     Plug 'glepnir/lspsaga.nvim'
     Plug 'ojroques/nvim-lspfuzzy'
@@ -103,8 +114,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Zen mode
     Plug 'junegunn/goyo.vim'
     " Snippets
-    Plug 'honza/vim-snippets'
-    Plug 'mattn/emmet-vim'
+    " Plug 'honza/vim-snippets'
+    " Plug 'mattn/emmet-vim'
     " Interactive code
     Plug 'metakirby5/codi.vim'
     " Debugging
@@ -197,7 +208,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Cheat.sh
     Plug 'dbeniamine/cheat.sh-vim'
     " Omnisharp support
-    Plug 'OmniSharp/omnisharp-vim'
+    " Plug 'OmniSharp/omnisharp-vim'
 
     "Jupyter
     Plug 'GCBallesteros/jupytext.vim'
@@ -207,7 +218,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
       
     " Org mode
-     Plug 'vimwiki/vimwiki'
+     " Plug 'vimwiki/vimwiki'
     "DEVELOPMENT PLUGIN
     " Neovim lua development
     Plug 'tjdevries/nlua.nvim'

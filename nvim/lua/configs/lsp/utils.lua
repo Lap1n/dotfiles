@@ -106,14 +106,19 @@ function M._on_cursor_moved_for_signature_help(wait)
         putil.set_timeout(wait, vim.schedule_wrap(require("lspsaga.signaturehelp").signature_help))
 end
 
-M.set_signature_help_autocmd(100)
-
+-- M.set_signature_help_autocmd(100)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.util.default_config =
     vim.tbl_extend(
     "force",
     lspconfig.util.default_config,
     {
-        on_attach = M.on_attach
+        capabilities = capabilities,
+        on_attach = M.on_attach,
+        init_options = {
+            usePlaceholders = true
+        }
     }
 )
 return M

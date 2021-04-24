@@ -213,11 +213,15 @@ alias wacHDMI="xsetwacom set $wacId MapToOutput HEAD-0"
 wacHDMI
 
 # conda activate python36
-
 source ~/Projects/Unity-Robotics-Hub/tutorials/pick_and_place/ROS/devel/setup.zsh
-source /opt/ros/noetic/setup.zsh
-source ~/catkin_ws/devel_isolated/setup.zsh
+
+# ROS config
+# source /opt/ros/noetic/setup.zsh
 source ~/catkin_ws/devel/setup.zsh
+# source ~/ros/ws_moveit/devel/setup.zsh
 
 #vcs completion
 source /usr/share/vcstool-completion/vcs.zsh
+
+alias reloadDrives=" sudo echo '- - -' | sudo tee /sys/class/scsi_host/host*/scan"
+

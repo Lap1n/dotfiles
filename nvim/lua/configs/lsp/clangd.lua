@@ -1,5 +1,16 @@
-local nvim_lsp = require "lspconfig"
+local lspconfig = require "lspconfig"
 
-nvim_lsp.clangd.setup {
-    cmd = {"clangd-9", "--background-index"}
+lspconfig.clangd.setup {
+    cmd = {"clangd-10", "--background-index"}
 }
+--lspconfig.ccls.setup {
+--    init_options = {
+--        compilationDatabaseDirectory = "./build",
+--        index = {
+--            threads = 0
+--        },
+--        clang = {
+--            excludeArgs = {"-frounding-math"}
+--        }
+--    }
+--}

@@ -7,3 +7,5 @@ augroup END
 
 
 
+let g:neoformat_enabled_cs = ['clangformat']
+

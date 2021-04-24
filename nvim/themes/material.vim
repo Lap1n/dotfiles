@@ -43,3 +43,6 @@ function! s:_ (name, ...)
 endfunc
 
 call s:_('BufferInactive', '#888888', '#2B2B2B', 'none')
+
+" highlight Normal guibg=none
+" highlight NonText guibg=none
