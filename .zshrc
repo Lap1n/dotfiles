@@ -223,5 +223,6 @@ source ~/catkin_ws/devel/setup.zsh
 #vcs completion
 source /usr/share/vcstool-completion/vcs.zsh
 
-alias reloadDrives=" sudo echo '- - -' | sudo tee /sys/class/scsi_host/host*/scan"
+alias 250gbDrive="cd /media/lapin/250GB-Drive"
+
 

@@ -48,7 +48,7 @@ nmap gi <Action>(GotoImplementation)
 nmap gI <Action>(GotoSuperMethod)
 nmap gf <Action>(GotoFile)
 
-vmap <leader>/ <Action>(CommentByBlockComment)
+vmap <leader>/ <Action>(CommentByLineComment)
 nmap <leader>/ <Action>(CommentByLineComment)
 nmap <leader>bd :quit<CR>
 nmap <leader>ba <Action>(CloseAllEditors)
@@ -78,6 +78,7 @@ nmap <leader><cr> <Action>(ShowIntentionActions)
 nmap <leader>sh <Action>(RecentFiles)
 nmap <leader>sp <Action>(GotoFile)
 nmap <leader>sc <Action>(GotoClass)
+nmap <leader>s; <Action>(GotoAction)
 nmap <leader><leader> <Action>(SearchEverywhere)
 
 nnoremap <c-l> <c-w>l
@@ -102,6 +103,9 @@ nmap <leader>= :action EditorResetFontSize<CR>
 "nmap <leader>ro :action OptimizeImports<CR>
 "nmap <leader>rg :action Generate<CR>
 nmap <leader>lm :action RefactoringMenu<CR>
+vmap <leader>lm :action RefactoringMenu<CR>
 
 command! Reload source ~/.ideavimrc
 
+:set relativenumber
+:set number
