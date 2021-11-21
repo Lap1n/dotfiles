@@ -2,7 +2,7 @@ local wezterm = require('wezterm');
 return {
   exit_behavior = "Close",
   font = wezterm.font("FiraCode Nerd Font"),
-  window_background_opacity =0.5,
+  window_background_opacity =0.3,
   default_prog = {"/usr/bin/zsh"},
   font_size = 14,
   enable_scroll_bar = false,
@@ -27,4 +27,8 @@ return {
   },
   window_close_confirmation = "NeverPrompt",
 	force_reverse_video_cursor = true,
+  colors = {
+      -- The default background color
+      background = "black",
+	}
 }

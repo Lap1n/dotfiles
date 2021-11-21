@@ -3,7 +3,9 @@ local plugins={
 	Plugin:new({'tpope/vim-fugitive'},"fugitive"),
 	Plugin:new({'folke/which-key.nvim',},"which-key"),
 	Plugin:new({'neovim/nvim-lspconfig'}),
+	Plugin:new({'unblevable/quick-scope'}, 'quick-scope'),
 	Plugin:new({'williamboman/nvim-lsp-installer'}),
+	Plugin:new({'akinsho/toggleterm.nvim'},'toggleterm'),
 
 	Plugin:new({
   'nvim-lualine/lualine.nvim',
@@ -42,7 +44,6 @@ local plugins={
 	-- Dashboard
   Plugin:new({'glepnir/dashboard-nvim',},'dashboard'),
 	-- Tabline
-	
   Plugin:new({
   'romgrk/barbar.nvim',
   requires = {'kyazdani42/nvim-web-devicons'}},'barbar'),
@@ -53,7 +54,8 @@ local plugins={
 
 
 	-- Motions
-  Plugin:new({'easymotion/vim-easymotion',},'vim-easymotion'),
+  -- Plugin:new({'easymotion/vim-easymotion',},'vim-easymotion'),
+  Plugin:new({'phaazon/hop.nvim',},'hop'),
   -- Completion engine
   --Plug 'hrsh7th/cmp-nvim-lsp'
   Plugin:new({

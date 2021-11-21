@@ -49,6 +49,9 @@ Option.g({
 	completeopt = 'menu,menuone,noselect',
 
 
+	-- terminal 
+	shell = 'zsh',
+
 	--[[
 	#-------------------------------------------------------------------------#
 	#                                    EDITING                              #
@@ -115,7 +118,9 @@ Option.w({
 	-- if buffer cannot display more than 200 lines, cursor will stay in center
 	-- and scroll the buffer
 	scrolloff = 8,
-	wrap = false,
+	wrap = true,
+	linebreak = true,
+	--nolist = true,
 	--colorcolumn = "80",
 })
 
