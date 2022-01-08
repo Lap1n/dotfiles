@@ -2,7 +2,8 @@ local wezterm = require('wezterm');
 return {
   exit_behavior = "Close",
   font = wezterm.font("FiraCode Nerd Font"),
-  window_background_opacity =0.3,
+  window_background_opacity =0.5,
+  -- text_background_opacity =0.0,
   default_prog = {"/usr/bin/zsh"},
   font_size = 14,
   enable_scroll_bar = false,

@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    url = "https://github.com/romgrk/barbar.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -144,10 +149,25 @@ _G.packer_plugins = {
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/dracula.nvim",
     url = "https://github.com/Mofiqul/dracula.nvim"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  neorg = {
+    loaded = true,
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/neorg",
+    url = "https://github.com/nvim-neorg/neorg"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -209,6 +229,16 @@ _G.packer_plugins = {
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["project.nvim"] = {
+    loaded = true,
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
+  ["quick-scope"] = {
+    loaded = true,
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/quick-scope",
+    url = "https://github.com/unblevable/quick-scope"
+  },
   ["sql.nvim"] = {
     loaded = true,
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/sql.nvim",
@@ -239,10 +269,10 @@ _G.packer_plugins = {
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["vim-easymotion"] = {
+  ["toggleterm.nvim"] = {
     loaded = true,
-    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/vim-easymotion",
-    url = "https://github.com/easymotion/vim-easymotion"
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["vim-fugitive"] = {
     loaded = true,

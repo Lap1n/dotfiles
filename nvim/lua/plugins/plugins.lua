@@ -1,5 +1,6 @@
 require('utils.plugin')
 local plugins={
+	Plugin:new({'tamago324/nlsp-settings.nvim'},"nlsp-settings"),
 	Plugin:new({'tpope/vim-fugitive'},"fugitive"),
 	Plugin:new({'folke/which-key.nvim',},"which-key"),
 	Plugin:new({'neovim/nvim-lspconfig'}),
@@ -20,7 +21,10 @@ local plugins={
   -- Smooth scroll
 	Plugin:new({'psliwka/vim-smoothie',},'vim-smoothie'),
 
+	--Org mode
+  Plugin:new({ "nvim-neorg/neorg", requires = "nvim-lua/plenary.nvim"}, "neorg"),
   -- Tree Sitter
+	--
   Plugin:new({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate'
