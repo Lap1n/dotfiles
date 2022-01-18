@@ -17,6 +17,8 @@ local plugins={
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
 },'nvim-tree'),
+	-- Formatter
+  Plugin:new({'mhartington/formatter.nvim',},'formatter'),
 
   -- Smooth scroll
 	Plugin:new({'psliwka/vim-smoothie',},'vim-smoothie'),
@@ -24,7 +26,6 @@ local plugins={
 	--Org mode
   Plugin:new({ "nvim-neorg/neorg", requires = "nvim-lua/plenary.nvim"}, "neorg"),
   -- Tree Sitter
-	--
   Plugin:new({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate'

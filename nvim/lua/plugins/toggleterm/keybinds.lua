@@ -6,7 +6,7 @@ function _Lazygit_toggle()
 end
 
 Keybind.register_which_key_keybinds({
-  g ={'<cmd>lua _Lazygit_toggle()<CR>','Move to word'},
+  gg ={'<cmd>lua _Lazygit_toggle()<CR>','Lazygit'},
 }, { prefix = "<leader>" })
 
 Keybind.g({
