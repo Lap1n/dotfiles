@@ -1,56 +1,15 @@
--- open file manager
---Keybind.g({
---	{ 'n', '<Leader>pv', [[<Cmd>NvimTreeToggle<CR>]], { noremap = true, silent = true } },
---})
---
-
--- local map = vim.api.nvim_set_keymap
--- -- local opts = { noremap = true, silent = true }
---
--- -- Move to previous/next
--- map('n', '<A-,>', ':BufferPrevious<CR>', opts)
--- map('n', '<A-.>', ':BufferNext<CR>', opts)
--- -- Re-order to previous/next
--- map('n', '<A-<>', ':BufferMovePrevious<CR>', opts)
--- map('n', '<A->>', ' :BufferMoveNext<CR>', opts)
--- -- Goto buffer in position...
--- map('n', '<A-1>', ':BufferGoto 1<CR>', opts)
--- map('n', '<A-2>', ':BufferGoto 2<CR>', opts)
--- map('n', '<A-3>', ':BufferGoto 3<CR>', opts)
--- map('n', '<A-4>', ':BufferGoto 4<CR>', opts)
--- map('n', '<A-5>', ':BufferGoto 5<CR>', opts)
--- map('n', '<A-6>', ':BufferGoto 6<CR>', opts)
--- map('n', '<A-7>', ':BufferGoto 7<CR>', opts)
--- map('n', '<A-8>', ':BufferGoto 8<CR>', opts)
--- map('n', '<A-9>', ':BufferGoto 9<CR>', opts)
--- map('n', '<A-0>', ':BufferLast<CR>', opts)
--- -- Close buffer
--- map('n', '<A-c>', ':BufferClose<CR>', opts)
--- -- Wipeout buffer
--- --                 :BufferWipeout<CR>
--- -- Close commands
--- --                 :BufferCloseAllButCurrent<CR>
--- --                 :BufferCloseBuffersLeft<CR>
--- --                 :BufferCloseBuffersRight<CR>
--- -- Magic buffer-picking mode
--- map('n', '<C-p>', ':BufferPick<CR>', opts)
--- -- Sort automatically by...
--- map('n', '<Space>bb', ':BufferOrderByBufferNumber<CR>', opts)
--- map('n', '<Space>bd', ':BufferOrderByDirectory<CR>', opts)
--- map('n', '<Space>bl', ':BufferOrderByLanguage<CR>', opts)
-local mapping ={  b = {
-    name = "buffers", -- optional group name
-    d={'<cmd>:BufferClose<CR>','Close Current Buffer'},
-    c={'<cmd>:BufferCloseAllButCurrent<CR>','Close All But Current'},
-    a={'<cmd>:BufferWipeout<CR>','Close All Buffers'},
-  },
+local mapping = {
+	b = {
+		name = "buffers", -- optional group name
+		d = { "<cmd>:BufferClose<CR>", "Close Current Buffer" },
+		c = { "<cmd>:BufferCloseAllButCurrent<CR>", "Close All But Current" },
+		a = { "<cmd>:BufferWipeout<CR>", "Close All Buffers" },
+	},
 }
 
 Keybind.g({
 	-- take from left
-	{ 'n', '<tab>', '<cmd>:BufferNext<CR>', { noremap = false, silent = true } },
-	{ 'n', '<s-tab>', '<cmd>:BufferPrevious<CR>', { noremap = false, silent = true } },
+	{ "n", "<tab>", "<cmd>:BufferNext<CR>", { noremap = false, silent = true } },
+	{ "n", "<s-tab>", "<cmd>:BufferPrevious<CR>", { noremap = false, silent = true } },
 })
-Keybind.register_which_key_keybinds(
-  mapping, { prefix = "<leader>" }
-)
+Keybind.register_which_key_keybinds(mapping, { prefix = "<leader>" })

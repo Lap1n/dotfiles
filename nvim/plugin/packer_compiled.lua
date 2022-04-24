@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["consolation.nvim"] = {
+    loaded = true,
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/consolation.nvim",
+    url = "https://github.com/pianocomposer321/consolation.nvim"
+  },
   ["dashboard-nvim"] = {
     loaded = true,
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
@@ -148,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/dracula.nvim",
     url = "https://github.com/Mofiqul/dracula.nvim"
+  },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -168,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/neorg",
     url = "https://github.com/nvim-neorg/neorg"
+  },
+  ["nlsp-settings.nvim"] = {
+    loaded = true,
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
+    url = "https://github.com/tamago324/nlsp-settings.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -193,11 +208,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-treesitter-context"] = {
-    loaded = true,
-    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
-    url = "https://github.com/romgrk/nvim-treesitter-context"
   },
   ["nvim-treesitter-refactor"] = {
     loaded = true,
@@ -293,6 +303,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lapin/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["yabs.nvim"] = {
+    loaded = true,
+    path = "/home/lapin/.local/share/nvim/site/pack/packer/start/yabs.nvim",
+    url = "https://github.com/pianocomposer321/yabs.nvim"
   }
 }
 

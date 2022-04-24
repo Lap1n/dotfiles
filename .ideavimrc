@@ -58,10 +58,11 @@ nmap <leader>d <Action>(Debug)
 
 nmap <leader>th <Action>(HideActiveWindow)
 nmap <leader>tt <Action>(ActivateTerminalToolWindow)
-
-nmap <leader>rb <Action>(BuildCurrentProject)
+"nmap <leader>rb <Action>(BuildCurrentProject)
+nmap <leader>rb <Action>(Tool_External Tools_Compile Unreal)
 nmap <leader>rp <Action>(RiderLink.StartUnreal)
 nmap <leader>rs <Action>(RiderLink.StopUnreal)
+nmap <leader>rr <Action>(ActivateRunToolWindow)
 
 nmap <leader>pp <Action>(GotoFile) 
 nmap <leader>pa <Action>(AddAction)
@@ -70,12 +71,13 @@ nmap <leader>pf <Action>(ManageRecentProjects)
 nmap <leader>lo <Action>(FileStructurePopup)
 nmap <leader>la <Action>(QuickActions)
 nmap <leader>lq <Action>(ShowIntentionActions)
-vmap <leader>lq <Action>(ShowIntentionActions)
 nmap <leader>lr <Action>(RenameElement)
 nmap <leader>lf <Action>(ReformatCode)
 nmap <leader><cr> <Action>(ShowIntentionActions)
 
+
 nmap <leader>sh <Action>(RecentFiles)
+nmap <leader>sa <Action>(GotoAction)
 nmap <leader>sp <Action>(GotoFile)
 nmap <leader>sc <Action>(GotoClass)
 nmap <leader>s; <Action>(GotoAction)
@@ -107,5 +109,5 @@ vmap <leader>lm :action RefactoringMenu<CR>
 
 command! Reload source ~/.ideavimrc
 
-:set relativenumber
-:set number
+"":set relativenumber
+"":set number
