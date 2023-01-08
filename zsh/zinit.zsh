@@ -10,7 +10,8 @@ zinit depth=1 wait lucid light-mode for \
     ajeetdsouza/zoxide \
     zsh-users/zsh-completions \
     OMZP::fzf \
-    Aloxaf/fzf-tab 
+    Aloxaf/fzf-tab \
+		wfxr/forgit
 
 # Must be the last plugin loaded
 zinit ice wait lucid atinit"zpcompinit;zpcdreplay"; zinit light zdharma/fast-syntax-highlighting
