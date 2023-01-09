@@ -62,19 +62,24 @@ if status then
 			--r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false, buffer = 123 }, -- additional options for creating the keymap
 			n = { "New File" }, -- just a label. don't create any mapping
 			e = "Edit File", -- same as above
-			["1"] = "which_key_ignore", -- special label to hide it in the popup
-			b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
 		},
 		b = {
 			name = "buffer",
 			c = { "<cmd>bdelete<cr>", "Close buffer" },
-			l = { "<cmd>buffer #<cr>", "List buffers" },
+			l = { "<cmd>Telescope buffers<cr>", "Switch buffers" },
 		},
 		s = {
 			name = "search",
-			c = { "<cmd>bdelete<cr>", "Close buffer" },
-			l = { "<cmd>buffer #<cr>", "List buffers" },
+			f = { "<cmd>Telescope find_files<cr>", "Search files" },
+			t = { "<cmd>Telescope live_grep<cr>", "Search text" },
+			b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search current buffer" },
+			r = { "<cmd>Telescope oldfiles<cr>", "Search recent files" },
 		},
+		l = {
+			name = "lsp",
+			d = { "<cmd>Telescope diagnostics<cr>", "List diagnotics" },
+		},
+	},
 		{ prefix = "<leader>" }
-	})
+	)
 end
