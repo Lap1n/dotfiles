@@ -22,6 +22,7 @@ require('packer').startup(function(use)
 	use { 'wbthomason/packer.nvim' }
 
 	-- Theming
+
 	use { 'folke/tokyonight.nvim' }
 	use { 'joshdick/onedark.vim' }
 	use { 'tanvirtin/monokai.nvim' }
