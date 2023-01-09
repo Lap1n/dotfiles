@@ -11,7 +11,8 @@ zinit depth=1 wait lucid light-mode for \
     zsh-users/zsh-completions \
     OMZP::fzf \
     Aloxaf/fzf-tab \
-		wfxr/forgit
+		wfxr/forgit \
+		MichaelAquilina/zsh-autoswitch-virtualenv 
 
 # Must be the last plugin loaded
 zinit ice wait lucid atinit"zpcompinit;zpcdreplay"; zinit light zdharma/fast-syntax-highlighting

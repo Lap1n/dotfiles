@@ -73,7 +73,7 @@ if status then
 			f = { "<cmd>Telescope find_files<cr>", "Search files" },
 			t = { "<cmd>Telescope live_grep<cr>", "Search text" },
 			b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search current buffer" },
-			r = { "<cmd>Telescope oldfiles<cr>", "Search recent files" },
+			h = { "<cmd>Telescope oldfiles<cr>", "Search recent files" },
 		},
 		l = {
 			name = "lsp",
