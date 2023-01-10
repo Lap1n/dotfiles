@@ -71,6 +71,7 @@ if status then
 		s = {
 			name = "search",
 			f = { "<cmd>Telescope find_files<cr>", "Search files" },
+			p = { "<cmd>Telescope find_files<cr>", "Search files" },
 			t = { "<cmd>Telescope live_grep<cr>", "Search text" },
 			b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search current buffer" },
 			h = { "<cmd>Telescope oldfiles<cr>", "Search recent files" },
