@@ -22,7 +22,6 @@ require('packer').startup(function(use)
 	use { 'wbthomason/packer.nvim' }
 
 	-- Theming
-
 	use { 'folke/tokyonight.nvim' }
 	use { 'joshdick/onedark.vim' }
 	use { 'tanvirtin/monokai.nvim' }
@@ -127,6 +126,15 @@ require('packer').startup(function(use)
 	}
 	use { 'rafamadriz/friendly-snippets' }
 
+	use {
+		'glepnir/dashboard-nvim',
+	}
+	use {
+		'rmagatti/auto-session',
+		config = function() pcall(require, 'plugins.auto-session') end,
+	}
+
+
 	if install_plugins then
 		require('packer').sync()
 	end
@@ -140,3 +148,5 @@ if install_plugins then
 	print '       then restart nvim'
 	print '=================================='
 end
+
+require('plugins.dashboard-nvim')
