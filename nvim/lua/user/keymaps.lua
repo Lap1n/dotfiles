@@ -8,6 +8,9 @@ vim.keymap.set({ 'n', 'x', 'o' }, '<leader>h', '^')
 vim.keymap.set({ 'n', 'x', 'o' }, '<leader>l', 'g_')
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
+vim.keymap.set('n', '<tab>', ':BufferLineCycleNext<cr>')
+vim.keymap.set('n', '<s-tab>', ':BufferLineCyclePrev<cr>')
+
 -- Basic clipboard interaction
 vim.keymap.set({ 'n', 'x' }, 'cp', '"+y')
 vim.keymap.set({ 'n', 'x' }, 'cv', '"+p')
@@ -68,6 +71,7 @@ if status then
 			c = { "<cmd>bdelete<cr>", "Close buffer" },
 			l = { "<cmd>Telescope buffers<cr>", "Switch buffers" },
 		},
+		w = { "<cmd>HopWord<cr>", "Hop" },
 		s = {
 			name = "search",
 			f = { "<cmd>Telescope find_files<cr>", "Search files" },

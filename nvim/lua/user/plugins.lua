@@ -29,8 +29,13 @@ require('packer').startup(function(use)
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { 'kyazdani42/nvim-web-devicons' }
 	use { 'folke/lsp-colors.nvim' }
-	use { 'folke/trouble.nvim',
-		config = function() pcall(require, 'plugins.trouble') end,
+	use { 'folke/trouble.nvim' }
+	use { 'phaazon/hop.nvim',
+		branch = 'v2', -- optional but strongly recommended
+		config = function()
+			-- you can configure Hop the way you like here; see :h hop-config
+			require 'hop'.setup {}
+		end
 	}
 	use { 'folke/which-key.nvim',
 		config = function() pcall(require, 'plugins.which-key') end,
