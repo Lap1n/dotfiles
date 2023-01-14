@@ -71,8 +71,23 @@ if status then
 		end
 	end
 
+	local neotest = require('neotest')
 	local function run_test_strategy()
-		require('neotest').run.run(test_strategy)
+		neotest.run.run(test_strategy)
+	end
+
+	local bufferline = require("bufferline")
+	local function close_all_buffers()
+		for _, e in ipairs(bufferline.get_elements().elements) do
+			vim.schedule(function()
+				vim.cmd("bd " .. e.id)
+			end)
+		end
+	end
+
+	local function close_all_but_this_one_buffers()
+		bufferline.close_in_direction("right")
+		bufferline.close_in_direction("left")
 	end
 
 	wk.register({
@@ -94,13 +109,18 @@ if status then
 			}
 		},
 		t = { name = "Test",
+			a = { ":lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Run all test" },
 			t = { run_test_strategy, "Run nearest test" },
+			o = { ":lua require('neotest').output_panel.toggle()<cr>", "Output panel" },
+			r = { ":lua require('neotest').output.open()<cr>", "Test result" },
 			f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Run nearest test" },
 			d = { toggle_debug_test, "Toggle debug mode" },
 		},
 		b = {
 			name = "buffer",
-			c = { "<cmd>bdelete<cr>", "Close buffer" },
+			d = { "<cmd>bdelete<cr>", "Close buffer" },
+			a = { close_all_buffers, "Close all buffer" },
+			c = { close_all_but_this_one_buffers, "Close all but this buffer" },
 			l = { "<cmd>Telescope buffers<cr>", "Switch buffers" },
 		},
 		w = { "<cmd>HopWord<cr>", "Hop" },
@@ -110,7 +130,7 @@ if status then
 			p = { "<cmd>Telescope find_files<cr>", "Search files" },
 			t = { "<cmd>Telescope live_grep<cr>", "Search text" },
 			b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search current buffer" },
-			h = { "<cmd>Telescope frecency<cr>", "Search recent files" },
+			h = { "<cmd>Telescope frecency workspace=CWD<cr>", "Search recent files" },
 		},
 		l = {
 			name = "lsp",
