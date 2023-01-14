@@ -60,7 +60,21 @@ if status then
 	-- and hide <leader>1
 	--
 	--
-	
+	local test_strategy = {}
+	local function toggle_debug_test()
+		if not next(test_strategy) then
+			test_strategy = { strategy = 'dap' }
+			print("DAP Neotest enabled")
+		else
+			test_strategy = {}
+			print("DAP Neotest disabled")
+		end
+	end
+
+	local function run_test_strategy()
+		require('neotest').run.run(test_strategy)
+	end
+
 	wk.register({
 		f = {
 			name = "file", -- optional group name
@@ -71,17 +85,18 @@ if status then
 		},
 		d = {
 			name = "debug",
-		  u = {"<cmd>lua require('dapui').toggle()<cr>","Toggle UI"},
-			b ={
+			u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle UI" },
+			b = {
 				name = "Breakpoint",
-				b ={"<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", "Toggle breakpoint"} ,
-				c ={"<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", "Conditional breakpoint"},
-				d ={"<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", "Clear all breakpoints"} 
+				b = { "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", "Toggle breakpoint" },
+				c = { "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", "Conditional breakpoint" },
+				d = { "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", "Clear all breakpoints" }
 			}
 		},
-		t = {name = "Test",
-		 t = {"<cmd>lua require('neotest').run.run({strategy='dap'})<cr>","Run nearest test"},
-		 f = {"<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>","Run nearest test"},
+		t = { name = "Test",
+			t = { run_test_strategy, "Run nearest test" },
+			f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Run nearest test" },
+			d = { toggle_debug_test, "Toggle debug mode" },
 		},
 		b = {
 			name = "buffer",
