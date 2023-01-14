@@ -1,9 +1,3 @@
-require("neodev").setup({
-	library = { plugins = true, types = true },
-})
-require("neoconf").setup({
-	-- override any of the default settings here
-})
 -- See :help mason-settings
 require('mason').setup({
 	ui = { border = 'rounded' }
@@ -21,55 +15,6 @@ require('mason-lspconfig').setup({
 		'jsonls'
 	}
 })
-
-
-
-local dap, dapui = require("dap"), require("dapui")
-dapui.setup()
-dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open()
-end
-require('persistent-breakpoints').setup {
-	load_breakpoints_event = { "BufReadPost" }
-}
-require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
-require("mason-nvim-dap").setup({
-	ensure_installed = { "python" }
-})
-
-
---require 'mason-nvim-dap'.setup_handlers {}
--- require 'mason-nvim-dap'.setup_handlers {
---     function(source_name)
---       -- all sources with no handler get passed here
---
---
---       -- Keep original functionality of `automatic_setup = true`
---       require('mason-nvim-dap.automatic_setup')(source_name)
---     end,
---     python = function(source_name)
---         dap.adapters.python = {
--- 	        type = "executable",
--- 	        command = "/usr/bin/python3",
--- 	        args = {
--- 		        "-m",
--- 		        "debugpy.adapter",
--- 	        },
---         }
---
---         dap.configurations.python = {
--- 	        {
--- 		        type = "python",
--- 		        request = "launch",
--- 		        name = "Launch file",
--- 		        program = "${file}", -- This configuration will launch the current file if used.
--- 	        },
---         }
---     end,
--- }
---
---
-
 
 -- See :help lspconfig-global-defaults
 local lspconfig = require('lspconfig')

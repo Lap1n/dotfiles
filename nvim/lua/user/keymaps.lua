@@ -58,6 +58,9 @@ if status then
 	--  * <leader>fn new file
 	--  * <leader>fe edit file
 	-- and hide <leader>1
+	--
+	--
+	
 	wk.register({
 		f = {
 			name = "file", -- optional group name
@@ -65,6 +68,20 @@ if status then
 			--r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false, buffer = 123 }, -- additional options for creating the keymap
 			n = { "New File" }, -- just a label. don't create any mapping
 			e = "Edit File", -- same as above
+		},
+		d = {
+			name = "debug",
+		  u = {"<cmd>lua require('dapui').toggle()<cr>","Toggle UI"},
+			b ={
+				name = "Breakpoint",
+				b ={"<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", "Toggle breakpoint"} ,
+				c ={"<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", "Conditional breakpoint"},
+				d ={"<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", "Clear all breakpoints"} 
+			}
+		},
+		t = {name = "Test",
+		 t = {"<cmd>lua require('neotest').run.run({strategy='dap'})<cr>","Run nearest test"},
+		 f = {"<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>","Run nearest test"},
 		},
 		b = {
 			name = "buffer",
@@ -78,7 +95,7 @@ if status then
 			p = { "<cmd>Telescope find_files<cr>", "Search files" },
 			t = { "<cmd>Telescope live_grep<cr>", "Search text" },
 			b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search current buffer" },
-			h = { "<cmd>Telescope oldfiles<cr>", "Search recent files" },
+			h = { "<cmd>Telescope frecency<cr>", "Search recent files" },
 		},
 		l = {
 			name = "lsp",

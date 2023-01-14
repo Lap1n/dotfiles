@@ -1,6 +1,7 @@
 -- See :help telescope.builtin
 
 require('telescope').load_extension('fzf')
+require"telescope".load_extension("frecency")
 
 local actions = require "telescope.actions"
 

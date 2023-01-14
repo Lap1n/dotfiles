@@ -68,6 +68,10 @@ require('packer').startup(function(use)
 		'nvim-telescope/telescope-fzf-native.nvim',
 		run = 'make',
 	}
+	use {
+		"nvim-telescope/telescope-frecency.nvim",
+		requires = { "kkharji/sqlite.lua" }
+	}
 
 	-- Git
 	use {
@@ -108,10 +112,27 @@ require('packer').startup(function(use)
 		"jayp0521/mason-null-ls.nvim",
 		config = function() pcall(require, 'plugins.mason-null-ls') end,
 	}
-	use { 'williamboman/mason-lspconfig.nvim' }
 	use {
-		'neovim/nvim-lspconfig',
-		config = function() pcall(require, 'plugins.lsp') end,
+		"neovim/nvim-lspconfig",
+		requires = {
+			"folke/neoconf.nvim",
+			"folke/neodev.nvim",
+			'mfussenegger/nvim-dap',
+			'mfussenegger/nvim-dap-python',
+			"jayp0521/mason-nvim-dap.nvim",
+			"rcarriga/nvim-dap-ui",
+			"Weissle/persistent-breakpoints.nvim",
+			"williamboman/mason-lspconfig.nvim",
+		},
+	}
+	use {
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim"
+		},
+		config = function() pcall(require, 'plugins.neotest') end,
 	}
 
 	-- Autocomplete
@@ -155,3 +176,4 @@ if install_plugins then
 end
 
 require('plugins.dashboard-nvim')
+pcall(require, 'plugins.lsp')
