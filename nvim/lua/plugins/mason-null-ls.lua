@@ -8,6 +8,7 @@ null_ls.setup({
 			end,
 		}),
 		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.stylua
 	}
 }
 )
@@ -16,4 +17,3 @@ require("mason-null-ls").setup({
 	automatic_installation = true,
 	automatic_setup = false,
 })
-

@@ -11,6 +11,8 @@ vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 vim.keymap.set('n', '<tab>', ':BufferLineCycleNext<cr>')
 vim.keymap.set('n', '<s-tab>', ':BufferLineCyclePrev<cr>')
 
+
+
 -- Basic clipboard interaction
 vim.keymap.set({ 'n', 'x' }, 'cp', '"+y')
 vim.keymap.set({ 'n', 'x' }, 'cv', '"+p')
@@ -140,3 +142,6 @@ if status then
 		{ prefix = "<leader>" }
 	)
 end
+
+-- Debugging
+vim.keymap.set('n', '<f5>', "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>")

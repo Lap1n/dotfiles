@@ -5,24 +5,22 @@ require("neoconf").setup({
 	-- override any of the default settings here
 })
 -- See :help mason-settings
-require('mason').setup({
-	ui = { border = 'rounded' }
+require("mason").setup({
+	ui = { border = "rounded" },
 })
 
 -- See :help mason-lspconfig-settings
-require('mason-lspconfig').setup({
+require("mason-lspconfig").setup({
 	ensure_installed = {
-		'eslint',
-		'tsserver',
-		'html',
-		'cssls',
-		'sumneko_lua',
-		'pyright',
-		'jsonls'
-	}
+		"eslint",
+		"tsserver",
+		"html",
+		"cssls",
+		"sumneko_lua",
+		"pyright",
+		"jsonls",
+	},
 })
-
-
 
 local dap, dapui = require("dap"), require("dapui")
 dapui.setup()
@@ -35,14 +33,13 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close()
 end
-require('persistent-breakpoints').setup {
-	load_breakpoints_event = { "BufReadPost" }
-}
-require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
-require("mason-nvim-dap").setup({
-	ensure_installed = { "python" }
+require("persistent-breakpoints").setup({
+	load_breakpoints_event = { "BufReadPost" },
 })
-
+require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+require("mason-nvim-dap").setup({
+	ensure_installed = { "python" },
+})
 
 --require 'mason-nvim-dap'.setup_handlers {}
 -- require 'mason-nvim-dap'.setup_handlers {
@@ -76,16 +73,12 @@ require("mason-nvim-dap").setup({
 --
 --
 
-
 -- See :help lspconfig-global-defaults
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 local lsp_defaults = lspconfig.util.default_config
 
-lsp_defaults.capabilities = vim.tbl_deep_extend(
-	'force',
-	lsp_defaults.capabilities,
-	require('cmp_nvim_lsp').default_capabilities()
-)
+lsp_defaults.capabilities =
+	vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 ---
 -- Diagnostic customization
@@ -100,31 +93,25 @@ local sign = function(opts)
 	})
 end
 
-sign({ name = 'DiagnosticSignError', linehl = "DiagnosticVirtualTextError", text = '✘' })
-sign({ name = 'DiagnosticSignWarn', linehl = "DiagnosticVirtualTextWarn", text = '▲' })
-sign({ name = 'DiagnosticSignHint', linehl = "DiagnosticVirtualTextHint", text = '⚑' })
-sign({ name = 'DiagnosticSignInfo', linehl = "DiagnosticVirtualTextInfo", text = '' })
+sign({ name = "DiagnosticSignError", linehl = "DiagnosticVirtualTextError", text = "✘" })
+sign({ name = "DiagnosticSignWarn", linehl = "DiagnosticVirtualTextWarn", text = "▲" })
+sign({ name = "DiagnosticSignHint", linehl = "DiagnosticVirtualTextHint", text = "⚑" })
+sign({ name = "DiagnosticSignInfo", linehl = "DiagnosticVirtualTextInfo", text = "" })
 
 vim.diagnostic.config({
 	virtual_text = { prefix = "●" },
 	severity_sort = true,
 	float = {
-		border = 'rounded',
-		source = 'always',
-		header = '',
-		prefix = '',
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
 	},
 })
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-	vim.lsp.handlers.hover,
-	{ border = 'rounded' }
-)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-	vim.lsp.handlers.signature_help,
-	{ border = 'rounded' }
-)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 ---
 -- LSP servers
@@ -135,20 +122,19 @@ local default_handler = function(server)
 end
 
 -- See :help mason-lspconfig-dynamic-server-setup
-require('mason-lspconfig').setup_handlers({
+require("mason-lspconfig").setup_handlers({
 	default_handler,
-	['tsserver'] = function()
+	["tsserver"] = function()
 		lspconfig.tsserver.setup({
 			settings = {
 				completions = {
-					completeFunctionCalls = true
-				}
-			}
+					completeFunctionCalls = true,
+				},
+			},
 		})
 	end,
-	['sumneko_lua'] = function()
-		require('plugins.lsp.sumneko_lua')
-	end
+	["sumneko_lua"] = function()
+		require("plugins.lsp.sumneko_lua")
+	end,
 })
-
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
