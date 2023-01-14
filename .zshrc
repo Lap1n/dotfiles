@@ -43,3 +43,19 @@ eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
+
+# function auto_pipenv_shell {
+#     if [ ! -n "${PIPENV_ACTIVE+1}" ]; then
+#         if [ -f "Pipfile" ] ; then
+# 					  export PIPENV_VENV_IN_PROJECT=1
+#             pipenv shell
+#         fi
+#     fi
+# }
+#
+# function cd {
+#     builtin cd "$@"
+#     auto_pipenv_shell
+# }
+#
+# auto_pipenv_shell
