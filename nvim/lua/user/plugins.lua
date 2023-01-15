@@ -148,6 +148,7 @@ require("packer").startup(function(use)
 			"Weissle/persistent-breakpoints.nvim",
 			"williamboman/mason-lspconfig.nvim",
 		},
+		config = function() end,
 	})
 	use({
 		"nvim-neotest/neotest",
@@ -175,6 +176,12 @@ require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-path" })
 	use({ "saadparwaiz1/cmp_luasnip" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("plugins.project")
+		end,
+	})
 
 	-- Snippets
 	use({
@@ -210,4 +217,5 @@ if install_plugins then
 end
 
 require("plugins.dashboard-nvim")
-pcall(require, "plugins.lsp")
+
+require("plugins.lsp")
