@@ -2,9 +2,8 @@ return {
   {
     "akinsho/bufferline.nvim",
     keys = function()
-      local bufferline = require("bufferline")
       local function close_all_buffers()
-        for _, e in ipairs(bufferline.get_elements().elements) do
+        for _, e in ipairs(require("bufferline").get_elements().elements) do
           vim.schedule(function()
             vim.cmd("bd " .. e.id)
           end)
@@ -12,8 +11,8 @@ return {
       end
 
       local function close_all_but_this_one_buffers()
-        bufferline.close_in_direction("right")
-        bufferline.close_in_direction("left")
+        require("bufferline").close_in_direction("right")
+        require("bufferline").close_in_direction("left")
       end
       return {
         { "<tab>", "<cmd>BufferLineCycleNext<cr>", "n" },

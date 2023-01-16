@@ -19,9 +19,8 @@ return {
           print("DAP Neotest disabled")
         end
       end
-      local neotest = require("neotest")
       local function run_test_strategy()
-        neotest.run.run(test_strategy)
+        require("neotest").run.run(test_strategy)
       end
       return {
         { "<leader>ta", ":lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "Run all test" },
