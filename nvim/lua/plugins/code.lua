@@ -188,14 +188,17 @@ return {
     --     winblend = 0,
     --   },
     -- },
-    keys = {
-      { "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Search files" },
-      { "<leader>ss", "<cmd>Telescope find_files<cr>", desc = "Search files" },
-      { "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "Search text" },
-      { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search current buffer" },
-      { "<leader>sh", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-      { "<leader>bl", "<cmd>Telescope buffers<cr>", desc = "Switch buffers" },
-    },
+
+    keys = function(_, keys)
+      return {
+        { "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Search files" },
+        { "<leader>ss", "<cmd>Telescope find_files<cr>", desc = "Search files" },
+        { "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "Search text" },
+        { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search current buffer" },
+        { "<leader>sh", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+        { "<leader>bl", "<cmd>Telescope buffers<cr>", desc = "Switch buffers" },
+      }
+    end,
 
     opts = function()
       --require("plugins.dressing")
