@@ -3,6 +3,9 @@ return {
     "mrjones2014/legendary.nvim",
     cmd = "Legendary",
     dependencies = { { "kkharji/sqlite.lua" } },
+    keys = {
+      { "<leader>s;", "<cmd>:Legendary<cr>", desc = "Legendary" },
+    },
 
     opts = {
       which_key = {
