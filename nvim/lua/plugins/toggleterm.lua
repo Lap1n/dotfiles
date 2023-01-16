@@ -12,12 +12,12 @@ return {
       local visual_mode_mapping = "<esc><esc>"
       -- if you only want these mappings for toggle term use term://*toggleterm#* instead
       function _G.set_terminal_keymaps()
-        vim.keymap.set("t", visual_mode_mapping, [[<C-\><C-n>]], opts)
+        vim.keymap.set("t", visual_mode_mapping, [[<C-\><C-n>]])
         --	vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
-        vim.keymap.set("t", "<C-w>h", [[<Cmd>wincmd h<CR>]], opts)
-        vim.keymap.set("t", "<C-w>j", [[<Cmd>wincmd j<CR>]], opts)
-        vim.keymap.set("t", "<C-w>k", [[<Cmd>wincmd k<CR>]], opts)
-        vim.keymap.set("t", "<C-w>l", [[<Cmd>wincmd l<CR>]], opts)
+        vim.keymap.set("t", "<C-w>h", [[<Cmd>wincmd h<CR>]])
+        vim.keymap.set("t", "<C-w>j", [[<Cmd>wincmd j<CR>]])
+        vim.keymap.set("t", "<C-w>k", [[<Cmd>wincmd k<CR>]])
+        vim.keymap.set("t", "<C-w>l", [[<Cmd>wincmd l<CR>]])
       end
 
       -- if you only want these mappings for toggle term use term://*toggleterm#* instead
