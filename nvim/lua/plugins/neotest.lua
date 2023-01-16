@@ -1,6 +1,7 @@
 return {
   {
     "nvim-neotest/neotest",
+    event = "BufEnter",
     dependencies = {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-neotest/neotest-python",
@@ -23,15 +24,15 @@ return {
         neotest.run.run(test_strategy)
       end
       return {
-        { "<leader>a", ":lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "Run all test" },
-        { "<leader>t", run_test_strategy, desc = "Run nearest test" },
-        { "<leader>o", ":lua require('neotest').output_panel.toggle()<cr>", desc = "Output panel" },
-        { "<leader>r", ":lua require('neotest').output.open()<cr>", desc = "Test result" },
-        { "<leader>f", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "Run nearest test" },
-        { "<leader>d", toggle_debug_test, desc = "Toggle debug mode" },
+        { "<leader>ta", ":lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "Run all test" },
+        { "<leader>tt", run_test_strategy, desc = "Run nearest test" },
+        { "<leader>to", ":lua require('neotest').output_panel.toggle()<cr>", desc = "Output panel" },
+        { "<leader>tr", ":lua require('neotest').output.open()<cr>", desc = "Test result" },
+        { "<leader>tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "Run nearest test" },
+        { "<leader>td", toggle_debug_test, desc = "Toggle debug mode" },
       }
     end,
-    config = function()
+    opts = function()
       return {
         adapters = {
           require("neotest-python")({

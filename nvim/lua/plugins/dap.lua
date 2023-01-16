@@ -1,6 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    event = "BufEnter",
     keys = {
       { "<leader>du", "<cmd>lua require('dapui').toggle()<cr>", desc = "Toggle UI" },
       {
@@ -25,6 +26,7 @@ return {
         "rcarriga/nvim-dap-ui",
         config = function()
           local dap = require("dap")
+          local dapui = require("dapui")
           dap.listeners.after.event_initialized["dapui_config"] = function()
             dapui.open()
           end
@@ -43,12 +45,13 @@ return {
         "mfussenegger/nvim-dap-python",
         --opts={adapter_python_path="~/.virtualenvs/debugpy/bin/python"}
       },
-    },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    opts = {
-      ensure_installed = { "python" },
+
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        opts = {
+          ensure_installed = { "python" },
+        },
+      },
     },
   },
 }
