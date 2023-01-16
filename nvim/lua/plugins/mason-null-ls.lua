@@ -12,8 +12,6 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
-        -- "pylint",
-        -- "black",
       },
     },
   },

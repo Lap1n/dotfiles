@@ -3,12 +3,13 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-      plugins = { spelling = true },
+      plugins = { spelling = true, presets = { windows = false } },
       key_labels = { ["<leader>"] = "SPC" },
     },
     config = function(_, opts)
       local wk = require("which-key")
       wk.setup(opts)
+
       wk.register({
         mode = { "n", "v" },
         ["g"] = { name = "+goto" },
