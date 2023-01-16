@@ -24,6 +24,8 @@ return {
         ["<leader>s"] = { name = "+search" },
         ["<leader>sn"] = { name = "+noice" },
         ["<leader>u"] = { name = "+ui" },
+        ["<leader>l"] = { name = "+lsp" },
+        ["<leader>d"] = { name = "+debug" },
         --  ["<leader>w"] = { name = "+windows" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
       })
