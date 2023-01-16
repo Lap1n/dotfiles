@@ -26,6 +26,7 @@ return {
         ["<leader>u"] = { name = "+ui" },
         ["<leader>l"] = { name = "+lsp" },
         ["<leader>d"] = { name = "+debug" },
+        ["<leader>o"] = { name = "+overseer" },
         --  ["<leader>w"] = { name = "+windows" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
       })

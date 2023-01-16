@@ -62,6 +62,10 @@ return {
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" }, { name = "copilot" } }))
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-space>"] = cmp.mapping.complete({}),
+        ["<C-e>"] = cmp.mapping.complete({}),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
