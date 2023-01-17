@@ -3,10 +3,20 @@ return {
     "akinsho/toggleterm.nvim",
     event = "BufEnter",
     opts = {
-      -- open_mapping = "<C-g>",
       open_mapping = "<f1>",
+      start_in_insert = false,
       direction = "horizontal",
       shade_terminals = true,
+      winbar = {
+        enabled = true,
+        name_formatter = function(term) --  term: Terminal
+          return term.name
+        end,
+      },
+    },
+    keys = {
+      -- { "<f1>", "<cmd>ToggleTermToggleAll<cr>", "n" },
+      -- { "<f1>", "<cmd>ToggleTermToggleAll<cr>", "t" },
     },
     init = function()
       local visual_mode_mapping = "<esc><esc>"
