@@ -1,0 +1,9 @@
+{
+  "lspconfig": {
+    "pylsp": {
+      "pylsp.plugins.pylint.enabled": true,
+      "pylsp.plugins.pylint.executable": "pylint",
+      "pylsp.plugins.rope_autoimport.enabled": true
+    }
+  }
+}
