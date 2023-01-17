@@ -37,9 +37,9 @@ source ~/dotfiles/zsh/zinit.zsh
 
 alias j="z"
 alias vim="nvim"
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
