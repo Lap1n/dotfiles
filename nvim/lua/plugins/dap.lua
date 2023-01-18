@@ -44,7 +44,21 @@ return {
     dependencies = {
       {
         "rcarriga/nvim-dap-ui",
-        config = function()
+        dependencies = { "mfussenegger/nvim-dap" },
+        opts = {},
+        -- keys = function()
+        --   local hover = function()
+        --     -- vim.lsp.buf.hover()
+        --   end
+        --   -- vim.keymap.del("n", "K")
+        --   -- vim.keymap.del("n", "K""
+        --   -- vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+        --   return {
+        --     -- { "K", "<Cmd>lua require('dapui').eval()<CR>", desc = "Eval expression" },
+        --     { "K", hover, desc = "Eval expression" },
+        --   }
+        -- end,
+        init = function()
           local dap = require("dap")
           local dapui = require("dapui")
           dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -58,14 +72,10 @@ return {
           end
         end,
       },
+      { "theHamsta/nvim-dap-virtual-text", opts = {} },
       { "Weissle/persistent-breakpoints.nvim", opts = {
         load_breakpoints_event = { "BufReadPost" },
       } },
-      -- {
-      --   "mfussenegger/nvim-dap-python",
-      --   opts = { adapter_python_path = "~/.virtualenvs/debugpy/bin/python" },
-      -- },
-      --
       {
         "jay-babu/mason-nvim-dap.nvim",
         opts = {
