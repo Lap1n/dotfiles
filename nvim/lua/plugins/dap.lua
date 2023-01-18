@@ -19,6 +19,26 @@ return {
         "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>",
         desc = "Clear all breakpoints",
       },
+      {
+        "<F9>",
+        "<cmd>lua require('dap').continue()<cr>",
+        desc = "Resume",
+      },
+      {
+        "<F8>",
+        "<cmd>lua require('dap').step_over()<cr>",
+        desc = "Step over",
+      },
+      {
+        "<F7>",
+        "<cmd>lua require('dap').step_into()<cr>",
+        desc = "Step into",
+      },
+      {
+        "<F5>",
+        "<cmd>lua require('dap').toggle_breakpoint()<cr>",
+        desc = "Toggle line breakpoint",
+      },
     },
 
     dependencies = {
@@ -28,29 +48,33 @@ return {
           local dap = require("dap")
           local dapui = require("dapui")
           dap.listeners.after.event_initialized["dapui_config"] = function()
-            dapui.open()
+            dapui.open({})
           end
           dap.listeners.before.event_terminated["dapui_config"] = function()
-            dapui.close()
+            dapui.close({})
           end
           dap.listeners.before.event_exited["dapui_config"] = function()
-            dapui.close()
+            dapui.close({})
           end
         end,
       },
       { "Weissle/persistent-breakpoints.nvim", opts = {
         load_breakpoints_event = { "BufReadPost" },
       } },
-      {
-        "mfussenegger/nvim-dap-python",
-        --opts={adapter_python_path="~/.virtualenvs/debugpy/bin/python"}
-      },
-
+      -- {
+      --   "mfussenegger/nvim-dap-python",
+      --   opts = { adapter_python_path = "~/.virtualenvs/debugpy/bin/python" },
+      -- },
+      --
       {
         "jay-babu/mason-nvim-dap.nvim",
         opts = {
           ensure_installed = { "python" },
+          automatic_setup = true,
         },
+        init = function()
+          require("mason-nvim-dap").setup_handlers()
+        end,
       },
     },
   },
