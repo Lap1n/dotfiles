@@ -27,6 +27,7 @@ return {
     dependencies = {
       "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-path",
+      "petertriho/cmp-git",
       {
         "rcarriga/cmp-dap",
         config = function()
