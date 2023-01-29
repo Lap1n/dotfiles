@@ -1,8 +1,8 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    default_source = "git_status",
     opts = {
+      default_source = "git_status",
       use_libuv_file_watcher = true,
       filesystem = {
         follow_current_file = true,

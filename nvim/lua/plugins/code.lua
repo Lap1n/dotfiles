@@ -127,7 +127,7 @@ return {
 
     opts = function()
       --require("plugins.dressing")
-      local telescope = require("telescope")
+      -- local telescope = require("telescope")
       --telescope.load_extension("fzf")
       ---telescope.load_extension("frecency")
       --telescope.load_extension("projects")
