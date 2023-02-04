@@ -114,6 +114,10 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
+    keys = {
+      { "<leader>lo", "<cmd>lua require'telescope.builtin'.lsp_document_symbols{}<cr>", desc = "Search files" },
+    },
+
     -- keys = function(_, keys)
     --   return {
     --     { "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Search files" },

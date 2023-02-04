@@ -37,7 +37,9 @@ fi
 #xterm -geometry 80x50+494+51 &
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
+./dotfiles/zsh/keyboard.sh
 setxkbmap -option caps:escape
 autorandr --change
+xbindkeys
 picom &
 exec awesome
