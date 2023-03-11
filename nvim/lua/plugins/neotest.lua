@@ -1,7 +1,8 @@
 return {
   {
     "nvim-neotest/neotest",
-    event = "BufEnter",
+    -- event = "BufEnter",
+    lazy = false,
     dependencies = {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-neotest/neotest-python",
@@ -39,7 +40,7 @@ return {
             runner = function()
               -- vim.env.PYTHONPATH = "PYTHONPATH=$PYTHONPATH:" .. vim.fn.getcwd() .. "/test"
               vim.env.PYTHONPATH = "PYTHONPATH=$PYTHONPATH:./test"
-              return "unittest"
+              return "pytest"
             end,
           }),
           require("neotest-plenary"),

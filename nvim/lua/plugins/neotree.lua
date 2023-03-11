@@ -6,6 +6,9 @@ return {
       use_libuv_file_watcher = true,
       filesystem = {
         follow_current_file = true,
+        filtered_items = {
+          hide_gitignored = false,
+        },
       },
       window = {
         width = 25,

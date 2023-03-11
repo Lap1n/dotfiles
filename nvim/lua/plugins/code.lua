@@ -161,6 +161,7 @@ return {
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = { { "nvim-treesitter/playground" }, { "m-demare/hlargs.nvim", opts = {} } },
     opts = {
       ensure_installed = {
         "bash",
@@ -180,5 +181,26 @@ return {
         "yaml",
       },
     },
+  },
+  {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true,
+    lazy = false,
+    opts = {
+      snippet_engine = "luasnip",
+      languages = {
+        python = {
+          template = {
+            annotation_convention = "reST",
+          },
+        },
+      },
+    },
+    keys = {
+      { "<leader>cp", "<cmd>Neogen<cr>", desc = "Docstring" },
+    },
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*"
   },
 }

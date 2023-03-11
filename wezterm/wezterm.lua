@@ -33,8 +33,9 @@ return {
 	--font = wezterm.font("VictorMono Nerd Font", { italic = true }),
 	window_background_opacity = 0.5,
 	-- text_background_opacity =0.0,
-	default_prog = { "/usr/bin/zsh" },
-	font_size = 14,
+	--default_prog = { "/usr/bin/zsh" },
+	font_size = 15,
+	-- font_size = 16,
 	enable_scroll_bar = false,
 	enable_tab_bar = false,
 	window_padding = {
@@ -43,6 +44,7 @@ return {
 		top = 0,
 		bottom = 0,
 	},
+	keys = { { key = "Enter", mods = "SHIFT", action = wezterm.action({ SendString = "\x1b[13;2u" }) } },
 	skip_close_confirmation_for_processes_named = {
 		"bash",
 		"sh",
@@ -61,4 +63,5 @@ return {
 		-- The default background color
 		background = "black",
 	},
+	window_decorations = "RESIZE",
 }

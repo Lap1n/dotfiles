@@ -12,7 +12,7 @@ zinit depth=1 wait lucid light-mode for \
     OMZP::fzf \
     Aloxaf/fzf-tab \
 		wfxr/forgit \
-		MichaelAquilina/zsh-autoswitch-virtualenv 
+    bckim92/zsh-autoswitch-conda
 
 # Must be the last plugin loaded
 zinit ice wait lucid atinit"zpcompinit;zpcdreplay"; zinit light zdharma/fast-syntax-highlighting

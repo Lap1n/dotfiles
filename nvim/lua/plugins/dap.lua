@@ -39,6 +39,11 @@ return {
         "<cmd>lua require('dap').toggle_breakpoint()<cr>",
         desc = "Toggle line breakpoint",
       },
+      {
+        "<F10>",
+        "<cmd>lua require('dap').restart()<cr>",
+        desc = "Restart current session",
+      },
     },
 
     dependencies = {
