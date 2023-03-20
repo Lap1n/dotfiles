@@ -21,6 +21,8 @@ return {
         end
       end
       local function run_test_strategy()
+        test_strategy.env = vim.env
+        print(test_strategy.env.PYTHONPATH)
         require("neotest").run.run(test_strategy)
       end
       return {
@@ -39,9 +41,11 @@ return {
             dap = { justMyCode = false },
             runner = function()
               -- vim.env.PYTHONPATH = "PYTHONPATH=$PYTHONPATH:" .. vim.fn.getcwd() .. "/test"
-              vim.env.PYTHONPATH = "PYTHONPATH=$PYTHONPATH:./test"
+              -- vim.env.PYTHONPATH = "PYTHONPATH=$PYTHONPATH:./test"
+              vim.env.PYTHONPATH = "PYTHONPATH=$PYTHONPATH:./tests"
               return "pytest"
             end,
+            python = "python3",
           }),
           require("neotest-plenary"),
           require("neotest-vim-test")({

@@ -2,6 +2,7 @@
   "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
   "LazyVim": { "branch": "main", "commit": "7a8ca6222a554bdb78fb8de35404672fc4042302" },
   "LuaSnip": { "branch": "master", "commit": "a835e3d680c5940b61780c6af07885db95382478" },
+  "automaton.nvim": { "branch": "master", "commit": "34323714276011c9f2f84199f7519709d408494b" },
   "barbecue": { "branch": "main", "commit": "d60fb8d8e240e5be04a20636f5b35b05a0d4712c" },
   "bufferline.nvim": { "branch": "main", "commit": "3677aceb9a72630b0613e56516c8f7151b86f95c" },
   "catppuccin": { "branch": "main", "commit": "128af65c3a23c94b324dc8d7f02a34feee8722d4" },

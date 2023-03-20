@@ -10,6 +10,8 @@
         //     "pylsp.plugins.pycodestyle.enabled": false,
         //     "pylsp.plugins.isort.enabled": true
         // }
-        "pyright": {}
+        "pyright": {
+            "python.analysis.diagnosticMode": "openFilesOnly"
+        }
     }
 }
