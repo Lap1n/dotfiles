@@ -16,9 +16,19 @@ return {
         pyright = {},
         gopls = {},
         jsonls = {},
-        sumneko_lua = {},
+        -- sumneko_lua = {},
         dockerls = {},
-        -- lua_ls = {},
+        haxe_language_server = {
+          initializationOptions = {
+            displayArguments = { "build.hxml" },
+          },
+          settings = {
+            haxe = {
+              executable = "haxe",
+            },
+          },
+        },
+        lua_ls = {},
       },
       format = {
         formatting_options = {
