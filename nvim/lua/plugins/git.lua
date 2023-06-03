@@ -5,7 +5,7 @@ return {
     keys = {},
     lazy = false,
   },
-  { "sindrets/diffview.nvim", lazy = false, opts = {} },
+  { "sindrets/diffview.nvim", lazy = false },
 }
 
 -- g = {

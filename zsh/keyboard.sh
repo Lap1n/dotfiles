@@ -7,4 +7,3 @@ if [ "$CURRENT_LANG" = $LANG1 ]; then
     setxkbmap $LANG2
 else
     setxkbmap $LANG1
-fi
