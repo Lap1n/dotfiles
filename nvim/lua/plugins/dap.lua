@@ -81,14 +81,14 @@ return {
       { "Weissle/persistent-breakpoints.nvim", opts = {
         load_breakpoints_event = { "BufReadPost" },
       } },
-      {
-        "jay-babu/mason-nvim-dap.nvim",
-        opts = {
-          ensure_installed = { "python" },
-          automatic_setup = true,
-        },
+    },
+    {
+      "jay-babu/mason-nvim-dap.nvim",
+      opts = {
+        ensure_installed = { "python" },
+        automatic_setup = true,
         init = function()
-          require("mason-nvim-dap").setup_handlers()
+          --require("mason-nvim-dap").setup_handlers()
         end,
       },
     },

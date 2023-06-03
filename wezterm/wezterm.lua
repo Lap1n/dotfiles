@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 return {
+	color_scheme = "Catppuccin Mocha", -- or Macchiato, Frappe, Latte
 	exit_behavior = "Close",
 	font = wezterm.font("FiraCode Nerd Font"),
 	font_rules = {

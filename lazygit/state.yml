@@ -1,0 +1,9 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/lapin/dotfiles
+- /home/lapin/nvim_plugins/launcher.nvim
+- /home/lapin/projects/flathunter
+startuppopupversion: 5
+customcommandshistory:
+- q
+hidecommandlog: false
