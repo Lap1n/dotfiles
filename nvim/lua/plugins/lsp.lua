@@ -13,7 +13,7 @@ return {
       { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
       { "gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", desc = "Rename" },
     },
-    init = function(config)
+    init = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
       keys[#keys + 1] = {
