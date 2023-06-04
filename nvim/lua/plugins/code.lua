@@ -1,5 +1,21 @@
 return {
   {
+    "Decodetalkers/csharpls-extended-lsp.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("csharpls_extended")
+    end,
+  },
+  {
+    "Hoffs/omnisharp-extended-lsp.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("omnisharp_extended")
+    end,
+  },
+  {
     "phaazon/hop.nvim",
     branch = "v2", -- optional but strongly recommended
     cmd = "HopWord",
@@ -116,6 +132,7 @@ return {
     "nvim-telescope/telescope.nvim",
     keys = {
       { "<leader>lo", "<cmd>lua require'telescope.builtin'.lsp_document_symbols{}<cr>", desc = "Search files" },
+      --{ "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "yolo", remap = true },
     },
 
     -- keys = function(_, keys)
