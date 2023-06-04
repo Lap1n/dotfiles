@@ -16,8 +16,6 @@ return {
     init = function(config)
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
-      -- keys[#keys + 1] = { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "yolo", remap = true }
-      -- if config.name == "omnisharp" then
       keys[#keys + 1] = {
         "gd",
         vim.lsp.buf.definition,
