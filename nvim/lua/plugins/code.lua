@@ -130,6 +130,9 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      { "gbrlsnchs/telescope-lsp-handlers.nvim" },
+    },
     keys = {
       { "<leader>lo", "<cmd>lua require'telescope.builtin'.lsp_document_symbols{}<cr>", desc = "Search files" },
       --{ "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "yolo", remap = true },
@@ -152,6 +155,8 @@ return {
       --telescope.load_extension("fzf")
       ---telescope.load_extension("frecency")
       --telescope.load_extension("projects")
+      local telescope = require("telescope")
+      telescope.load_extension("lsp_handlers")
 
       local actions = require("telescope.actions")
       return {
