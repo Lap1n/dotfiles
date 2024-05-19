@@ -1,4 +1,5 @@
 return {
+  { "m-demare/hlargs.nvim" },
   "catppuccin/nvim",
   name = "catppuccin",
   opts = {
