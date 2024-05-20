@@ -1,4 +1,4 @@
-Shift_L + Alt_L
+super + BackSpace
     setxkbmap -query | grep -w -q 'ca' && setxkbmap -model pc104 -layout us -variant ,, || setxkbmap -model pc104 -layout ca,us -variant ,,
-Shift_R + Alt_R
+super + BackSpace
     setxkbmap -query | grep -w -q 'ca' && setxkbmap -model pc104 -layout us -variant ,, || setxkbmap -model pc104 -layout ca,us -variant ,,
