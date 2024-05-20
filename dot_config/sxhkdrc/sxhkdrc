@@ -1,0 +1,4 @@
+Shift_L + Alt_L + BackSpace
+    setxkbmap -query | grep -q 'ca' && setxkbmap us || setxkbmap ca,us
+Shift_R + Alt_R + BackSpace
+    setxkbmap -query | grep -q 'ca' && setxkbmap us || setxkbmap ca,us
