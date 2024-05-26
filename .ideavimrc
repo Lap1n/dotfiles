@@ -53,6 +53,7 @@ nmap <leader>/ <Action>(CommentByLineComment)
 nmap <leader>bd :quit<CR>
 nmap <leader>ba <Action>(CloseAllEditors)
 nmap <leader>bc <Action>(CloseAllEditorsButActive)
+nmap <leader><leader> <Action>(SearchEverywhere)
 
 nmap <leader>d <Action>(Debug)
 
