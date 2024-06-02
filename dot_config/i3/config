@@ -231,4 +231,4 @@ bindsym --release Print exec flameshot gui
 exec python3 ~/.config/i3/i3unityfix.py &
 exec systemctl --user start sunshine
 exec_always ~/.config/polybar/launch.sh --docky
-exec $(sleep 1 && betterlockscreen -l)
+# exec $(sleep 1 && betterlockscreen -l)
